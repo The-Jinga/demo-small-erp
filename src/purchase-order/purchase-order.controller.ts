@@ -20,7 +20,12 @@ import { PurchaseOrderStatus } from '../common/enums';
 import { PermissionsGuard } from 'src/auth/guards/permissions.guard';
 import { Permission } from '../common/enums/permission.enum';
 import { Permissions } from '../auth/decorators/permissions.decorator';
-import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiOperation,
+  ApiQuery,
+  ApiTags,
+} from '@nestjs/swagger';
 import { PurchaseOrderDto } from './dtos/purchase-order.dto';
 import { transformWithGroups } from '../common/helpers/transform.helper';
 import { RolePermissions } from '../auth/role-permissions.map';
@@ -83,6 +88,12 @@ export class PurchaseOrderController extends BaseController {
   }
 
   @ApiOperation({ summary: 'Get all purchase orders' })
+  @ApiQuery({
+    name: 'status',
+    required: false,
+    type: String,
+    description: 'Filter orders by status',
+  })
   @Get()
   async findAll(@Request() req, @Query('status') status?: PurchaseOrderStatus) {
     const orders = transformWithGroups(

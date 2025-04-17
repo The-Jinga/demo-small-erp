@@ -22,6 +22,7 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { ApiBaseResponse } from 'src/common/decorators/api-base-response.decorator';
+import { plainToInstance } from 'class-transformer';
 
 @ApiTags('Auth')
 @Controller('auth')
@@ -64,7 +65,10 @@ export class AuthController extends BaseController {
   @UseGuards(JwtAuthGuard)
   @Get('me')
   async getMe(@Request() req) {
-    const user = await this.authService.getUserById(req.user.id);
+    const user = plainToInstance(
+      UserDto,
+      await this.authService.getUserById(req.user.id),
+    );
     return this.ok('Fetched user successfully', user);
   }
 

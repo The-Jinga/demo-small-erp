@@ -166,6 +166,8 @@ export class PurchaseOrderService {
       query.andWhere('po.status = :status', { status });
     }
 
+    console.log(query);
+
     return query;
   }
 }

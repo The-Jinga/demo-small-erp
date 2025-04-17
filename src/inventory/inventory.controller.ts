@@ -36,11 +36,12 @@ export class InventoryController extends BaseController {
     @Request() req,
     @Body() receiveGoodsDto: ReceiveGoodsDto,
   ): Promise<void> {
-    return this.inventoryService.stockIn(
+    await this.inventoryService.stockIn(
       purchaseOrderId,
       receiveGoodsDto,
       req.user.id,
     );
+    return this.ok('Stock in successfully');
   }
 
   @Post('stock-out')
@@ -49,7 +50,8 @@ export class InventoryController extends BaseController {
     @Request() req,
     @Body() stockOutDto: StockOutDto,
   ): Promise<void> {
-    return this.inventoryService.stockOut(stockOutDto, req.user.id);
+    await this.inventoryService.stockOut(stockOutDto, req.user.id);
+    return this.ok('Stock out successfully');
   }
 
   @Get('transactions')

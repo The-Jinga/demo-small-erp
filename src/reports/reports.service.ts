@@ -69,7 +69,7 @@ export class ReportsService {
         'supplier.name AS supplierName',
         `DATE_TRUNC('month', po."createdAt") AS month`,
         `COALESCE(SUM(inventory_summary."totalQuantity" * poi."unitPrice"),0) AS totalSpent`,
-        `COUNT(po.id) AS orderCount`,
+        `COUNT(DISTINCT po.id) AS orderCount`,
       ])
       .innerJoin('po.supplier', 'supplier')
       .leftJoin('po.items', 'poi')
@@ -88,8 +88,8 @@ export class ReportsService {
         'inventory_summary."relatedPoId" = poi."purchaseOrderId" AND inventory_summary."productId" = poi."productId"',
       )
       .groupBy('supplier.id')
-      .addGroupBy('supplier.name')
       .addGroupBy(`DATE_TRUNC('month', po."createdAt")`)
+      .addGroupBy('po.id')
       .orderBy('supplier.id', 'ASC')
       .addOrderBy('month', 'ASC')
       .getRawMany();
@@ -110,7 +110,6 @@ export class ReportsService {
           parseFloat(row.totalspent) / parseInt(row.ordercount),
         orderCount: parseInt(row.ordercount),
       });
-
       return acc;
     }, {});
     const data = Object.values(groupedResults);
