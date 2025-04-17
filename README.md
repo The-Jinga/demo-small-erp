@@ -24,7 +24,7 @@ A small ERP system built with NestJS for managing products processing operations
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone git@github.com:The-Jinga/demo-small-erp.git
 ```
 
 2. Install dependencies:
