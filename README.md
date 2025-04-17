@@ -91,13 +91,12 @@ You can use these accounts to log in and test features based on different user r
 ### Purchase Orders
 - `GET /purchase-orders` - Get all purchase orders
 - `GET /purchase-orders/:id` - Get purchase order by ID
-- `PUT /purchase-orders` - Create new purchase order with `draft` status
+- `POST /purchase-orders` - Create new purchase order with `draft` status
 - `PUT /purchase-orders/:id/submit` - Update status purchase order to `pending_review`
 - `PUT /purchase-orders/:id/review` - Update status purchase order to `approval` or `rejected`
 
 ### Inventory
 - `GET /inventory/transactions` - Get inventory transactions
-- `POST /inventory/` - Add to inventory
 - `POST /inventory/:id/stock-in` - Stock in products
 - `POST /inventory/:id/stock-out` - Stock out products
 
