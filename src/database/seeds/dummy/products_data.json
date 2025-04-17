@@ -1,0 +1,43 @@
+[
+    {
+      "name": "Cement",
+      "sku": "CMT-123",
+      "category": "Building Materials",
+      "unitPrice": 100.0,
+      "stock": 500,
+      "pendingStock": 100
+    },
+    {
+      "name": "Steel Rod",
+      "sku": "STR-456",
+      "category": "Building Materials",
+      "unitPrice": 150.0,
+      "stock": 200,
+      "pendingStock": 50
+    },
+    {
+      "name": "Conveyor Belt",
+      "sku": "CVB-789",
+      "category": "Manufacturing",
+      "unitPrice": 250.0,
+      "stock": 50,
+      "pendingStock": 10
+    },
+    {
+      "name": "Industrial Fan",
+      "sku": "IFN-321",
+      "category": "Machinery",
+      "unitPrice": 300.0,
+      "stock": 30,
+      "pendingStock": 5
+    },
+    {
+      "name": "Piping System",
+      "sku": "PS-654",
+      "category": "Plumbing",
+      "unitPrice": 200.0,
+      "stock": 100,
+      "pendingStock": 20
+    }
+  ]
+  
