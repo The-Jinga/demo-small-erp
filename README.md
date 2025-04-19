@@ -57,6 +57,29 @@ yarn seed:run
 yarn start:dev
 ```
 
+### Installation By Docker Compose
+
+1. Create environment file:
+```bash
+cp .env.example .env
+```
+
+2. Run docker conpose to install need images and start containers:
+```bash
+docker-compose up -d
+```
+
+3. Run docker conpose to install need images and start containers:
+```bash
+docker-compose up -d
+```
+
+4. Run migration and seed data:
+```bash
+docker compose exec erp yarn migration:run
+docker compose exec erp yarn seed:run
+```
+
 The application will be available at `http://localhost:3000` - Interactive API documentation available at `http://localhost:3000/api`
 
 ## Seeded Users
