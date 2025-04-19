@@ -69,15 +69,10 @@ cp .env.example .env
 docker-compose up -d
 ```
 
-3. Run docker conpose to install need images and start containers:
+3. Run migration and seed data:
 ```bash
-docker-compose up -d
-```
-
-4. Run migration and seed data:
-```bash
-docker compose exec erp yarn migration:run
-docker compose exec erp yarn seed:run
+docker-compose exec erp yarn migration:run
+docker-compose exec erp yarn seed:run
 ```
 
 The application will be available at `http://localhost:3000` - Interactive API documentation available at `http://localhost:3000/api`
